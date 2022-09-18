@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+// imports
+@import "normalize";
+@import "varialbes";
+@import "mixins";
+
+// global
+// --headings
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 300;
+}
+h5 {
+  font-size: var(--fontSize5);
+}
+h4 {
+  font-size: var(--fontSize4);
+}
+h3 {
+  font-size: var(--fontSize3);
+}
+h2 {
+  font-size: var(--fontSize2);
+}
+h1 {
+  font-size: var(--fontSize1);
+}
+// --app's
+body {
+  background: var(--colorBg);
+  color: var(--colorTextMain);
+}
+
+.icon-btn {
+  @include iconBtn();
+}

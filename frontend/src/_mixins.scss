@@ -1,0 +1,28 @@
+@mixin clearedBtn {
+  outline: none;
+  border: none;
+  color: var(--colorTextMain);
+}
+
+@mixin iconBtn($textColor: var(--colorTextExtra), $focusedTextColor: var(--colorMain)) {
+  @include clearedBtn;
+
+  background: none;
+  color: $textColor;
+  transition: var(--transitionDefault);
+
+  &:focus-within,
+  &:hover {
+    color: $focusedTextColor;
+  }
+}
+
+@mixin btn {
+  @include clearedBtn;
+
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  transition: var(--transitionDefault);
+}
+
