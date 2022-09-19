@@ -1,13 +1,17 @@
-<header>
-  <app-logo></app-logo>
+<div class="content">
+  <a routerLink="/">
+    <app-logo></app-logo>
+  </a>
   <app-search></app-search>
-  <div class="profile-tools">
-    <button class="icon-btn profile-tools__btn">
-<!--      <fa-icon [icon]="settingsIcon"></fa-icon>-->
-    </button>
-    <button class="icon-btn profile-tools__btn">
-<!--      <fa-icon [icon]="notificationsIcon"></fa-icon>-->
-    </button>
+  <div class="profile">
+    <div class="profile__tools">
+      <a routerLink="/settings" class="icon-btn profile-tools__btn">
+      <fa-icon [icon]="settingsIcon"></fa-icon>
+      </a>
+      <a routerLink="/notifications" class="icon-btn profile-tools__btn">
+        <fa-icon [icon]="notificationsIcon"></fa-icon>
+      </a>
+    </div>
+    <app-profile-mini></app-profile-mini>
   </div>
-  <app-profile-mini></app-profile-mini>
-</header>
+</div>

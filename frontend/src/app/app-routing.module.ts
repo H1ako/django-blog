@@ -7,10 +7,10 @@ const routes: Routes = [
     path: '',
     component: HomePageComponent
   },
-  // {
-  //   path: '',
-  //   // component: HomePageComponent
-  // },
+  {
+    path: 'notifications',
+    component: HomePageComponent
+  },
   // {
   //   path: '**',
   //   // component: HomePageComponent

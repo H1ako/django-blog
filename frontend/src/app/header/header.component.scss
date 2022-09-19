@@ -1,3 +1,29 @@
-header {
+@import "../../mixins";
 
+:host {
+  position: sticky;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--colorBg);
+  border-bottom: 3px solid var(--colorBgAccent);
+  padding: 1rem 2.5rem;
+
+  .content {
+    @include mainContentArea;
+
+    .profile {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1rem;
+
+      &__tools {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+      }
+    }
+  }
 }

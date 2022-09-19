@@ -1,9 +1,16 @@
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap');
 // imports
 @import "normalize";
-@import "varialbes";
+@import "variables";
 @import "mixins";
 
 // global
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
 // --headings
 h1,
 h2,
@@ -30,7 +37,11 @@ h1 {
 // --app's
 body {
   background: var(--colorBg);
-  color: var(--colorTextMain);
+
+  & > * {
+    @include fontBaloo;
+    color: var(--colorTextMain);
+  }
 }
 
 .icon-btn {

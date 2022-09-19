@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from "@angular/common/http";
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClientModule } from "@angular/common/http";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +14,8 @@ import { NavComponent } from './nav/nav.component';
 import { AppLogoComponent } from './app-logo/app-logo.component';
 import { SearchComponent } from './search/search.component';
 import { ProfileMiniComponent } from './profile-mini/profile-mini.component';
+import { IconBtnComponent } from './icon-btn/icon-btn.component';
+
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { ProfileMiniComponent } from './profile-mini/profile-mini.component';
     NavComponent,
     AppLogoComponent,
     SearchComponent,
-    ProfileMiniComponent
+    ProfileMiniComponent,
+    IconBtnComponent
   ],
   imports: [
     HttpClientModule,
