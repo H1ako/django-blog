@@ -1,0 +1,36 @@
+@import "../../mixins";
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  a {
+    @include link;
+
+    font-size: var(--fontSize3);
+    color: var(--colorTextExtra);
+
+    &.active {
+      color: var(--colorTextMain);
+
+      fa-icon {
+        color: var(--colorMain);
+      }
+    }
+
+    &:not(.active):hover,
+    &:not(.active):focus-within {
+      color: var(--colorTextMain);
+
+      fa-icon {
+        color: var(--colorMainDark);
+      }
+    }
+
+    fa-icon {
+      color: var(--colorBgAccent);
+      width: 2rem;
+    }
+  }
+}

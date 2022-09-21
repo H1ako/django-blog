@@ -1,0 +1,40 @@
+@import '../../mixins';
+
+:host {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  & :not(:last-child) {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      background: var(--colorBgAccent);
+      height: 2px;
+      width: 110%;
+      top: calc(100% + 1.5rem);
+      left: -5%;
+    }
+  }
+
+  .navbar-btn {
+    @include btn;
+
+    background: var(--colorBgAccent);
+    font-size: var(--fontSize4);
+    padding: .5rem 1.25rem;
+
+    &:hover,
+    &:focus-within {
+      background: var(--colorBgAccentLight);
+    }
+
+    &__icon {
+      color: var(--colorMain);
+    }
+
+  }
+}

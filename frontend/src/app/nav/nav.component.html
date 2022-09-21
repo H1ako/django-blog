@@ -1,1 +1,14 @@
-<p>nav works!</p>
+<ul>
+  <li>
+    <a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="/">
+      <fa-icon [fixedWidth]="true" [icon]="homeIcon"></fa-icon>
+      <h3>Home</h3>
+    </a>
+  </li>
+  <li>
+    <a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="/posts">
+      <fa-icon [fixedWidth]="true" [icon]="postsIcon"></fa-icon>
+      <h3>Posts</h3>
+    </a>
+  </li>
+</ul>

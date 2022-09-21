@@ -6,6 +6,7 @@
   --colorMainDark: #00ADB5;
   --colorBg: #212121;
   --colorBgAccent: #323232;
+  --colorBgAccentLight: #414141;
 
   --fontSize5: 1rem;
   --fontSize4-5: 1.25rem;
@@ -16,6 +17,8 @@
 
   --transitionDefault: 300ms;
   --transitionSmall: 150ms;
+
+  --bdrsBtn: 10px;
 
   --widthContent: min(1440px, 100%);
   $sideSize: 1fr;

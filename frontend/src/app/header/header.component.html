@@ -7,10 +7,10 @@
   <app-search></app-search>
   <div class="content__right-side">
     <div class="right-side__tools">
-      <a routerLink="/settings" class="icon-btn profile-tools__btn">
+      <a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="/settings" class="icon-btn profile-tools__btn">
       <fa-icon [icon]="settingsIcon"></fa-icon>
       </a>
-      <a routerLink="/notifications" class="icon-btn profile-tools__btn">
+      <a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="/notifications" class="icon-btn profile-tools__btn">
         <fa-icon [icon]="notificationsIcon"></fa-icon>
       </a>
     </div>

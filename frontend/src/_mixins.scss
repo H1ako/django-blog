@@ -16,7 +16,7 @@
   color: var(--colorTextMain);
 }
 
-@mixin iconBtn($textColor: var(--colorTextExtra), $focusedTextColor: var(--colorMain)) {
+@mixin iconBtn($textColor: var(--colorTextExtra), $focusedTextColor: var(--colorMainDark), $activeTextColor: var(--colorMain)) {
   @include clearedBtn;
 
   background: none;
@@ -24,9 +24,13 @@
   transition: var(--transitionDefault);
   font-size: var(--fontSize4);
 
-  &:focus-within,
-  &:hover {
+  &:not(.active):focus-within,
+  &:not(.active):hover {
     color: $focusedTextColor;
+  }
+
+  &.active {
+    color: $activeTextColor;
   }
 }
 
@@ -35,7 +39,17 @@
 
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: .75rem;
-  transition: var(--transitionDefault);
+  transition: var(--transitionSmall);
+  border-radius: var(--bdrsBtn);
+  cursor: pointer;
 }
 
+@mixin link {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  transition: var(--transitionSmall);
+  cursor: pointer;
+}
