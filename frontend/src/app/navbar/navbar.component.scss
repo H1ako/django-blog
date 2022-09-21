@@ -1,24 +1,12 @@
 @import '../../mixins';
 
 :host {
+  @include blockSeparator;
+
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 3rem;
-
-  & :not(:last-child) {
-    position: relative;
-
-    &::after {
-      content: '';
-      position: absolute;
-      background: var(--colorBgAccent);
-      height: 2px;
-      width: 110%;
-      top: calc(100% + 1.5rem);
-      left: -5%;
-    }
-  }
 
   .navbar-btn {
     @include btn;

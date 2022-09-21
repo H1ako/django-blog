@@ -53,3 +53,53 @@
   transition: var(--transitionSmall);
   cursor: pointer;
 }
+
+@mixin linkWithIIcon(
+  $textColor: var(--colorTextExtra),
+  $activeTextColor: var(--colorTextMain),
+  $iconColor: var(--colorBgAccent),
+  $activeIconColor: var(--colorMainDark),
+  $focusedIconColor: var(--colorMain)
+) {
+  @include link;
+
+  color: $textColor;
+
+  &.active {
+    color: $activeTextColor;
+
+    fa-icon {
+      color: $focusedIconColor;
+    }
+  }
+
+  &:not(.active):hover,
+  &:not(.active):focus-within {
+    color: $activeTextColor;
+
+    fa-icon {
+      color: $activeIconColor;
+    }
+  }
+
+  fa-icon {
+    color: $iconColor;
+    width: 2rem;
+  }
+}
+
+@mixin blockSeparator {
+  & :not(:last-child) {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      background: var(--colorBgAccent);
+      height: 2px;
+      width: 110%;
+      top: calc(100% + 1.5rem);
+      left: -5%;
+    }
+  }
+}

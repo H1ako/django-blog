@@ -19,8 +19,9 @@
   --transitionSmall: 150ms;
 
   --bdrsBtn: 10px;
+  --bdrsWindow: 10px;
 
   --widthContent: min(1440px, 100%);
-  $sideSize: 1fr;
+  $sideSize: 15rem;
   --gridTemplateContent: #{$sideSize} 4fr #{$sideSize};
 }

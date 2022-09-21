@@ -23,7 +23,7 @@
     &__right-side {
       display: flex;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: space-between;
       gap: 2rem;
 
       .right-side__tools {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-asidebar',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./asidebar.component.scss']
 })
 export class AsidebarComponent implements OnInit {
+  favouritesIcon = faHeart
 
   constructor() { }
 

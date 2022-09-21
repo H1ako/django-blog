@@ -1,0 +1,17 @@
+@import "../../mixins";
+
+:host {
+  @include blockSeparator;
+
+  ul {
+    a {
+      @include linkWithIIcon;
+
+      font-size: var(--fontSize4);
+
+      fa-icon {
+        font-size: var(--fontSize3);
+      }
+    }
+  }
+}
