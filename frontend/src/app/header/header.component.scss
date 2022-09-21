@@ -13,13 +13,19 @@
   .content {
     @include mainContentArea;
 
-    .profile {
+    align-items: center;
+
+    .left-side__logo-link {
+      width: 10rem;
+    }
+
+    &__right-side {
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      gap: 1rem;
+      gap: 2rem;
 
-      &__tools {
+      .right-side__tools {
         display: flex;
         gap: 1rem;
         align-items: center;

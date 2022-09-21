@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-search',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
+  searchIcon = faMagnifyingGlass
 
-  constructor() { }
+  private _searchQuery: string = ''
 
-  ngOnInit(): void {
+  @Input() set searchQuery(query: string) {
+    this._searchQuery = query;
   }
 
+  get searchQuery(): string {
+    return this._searchQuery;
+  }
+
+  constructor() { }
+  ngOnInit(): void {
+  }
 }

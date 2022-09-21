@@ -1,0 +1,17 @@
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+
+  &__name {
+    white-space: nowrap;
+  }
+  &__pic {
+
+    border-radius: 50%;
+    border: 2px solid var(--colorBg);
+    background-color: var(--colorMainDark);
+    aspect-ratio: 1;
+    width: 4rem;
+  }
+}

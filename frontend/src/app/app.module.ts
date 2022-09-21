@@ -15,6 +15,7 @@ import { AppLogoComponent } from './app-logo/app-logo.component';
 import { SearchComponent } from './search/search.component';
 import { ProfileMiniComponent } from './profile-mini/profile-mini.component';
 import { IconBtnComponent } from './icon-btn/icon-btn.component';
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -32,12 +33,13 @@ import { IconBtnComponent } from './icon-btn/icon-btn.component';
     ProfileMiniComponent,
     IconBtnComponent
   ],
-  imports: [
-    HttpClientModule,
-    BrowserModule,
-    AppRoutingModule,
-    FontAwesomeModule,
-  ],
+    imports: [
+        HttpClientModule,
+        BrowserModule,
+        AppRoutingModule,
+        FontAwesomeModule,
+        FormsModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

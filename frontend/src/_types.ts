@@ -1,0 +1,1 @@
+type UserPicType = string | null

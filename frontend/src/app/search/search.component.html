@@ -1,1 +1,15 @@
-<p>search works!</p>
+<div class="search">
+  <label class="search__label" for="search">
+    <fa-icon [icon]="searchIcon"></fa-icon>
+  </label>
+  <input
+    [(ngModel)]="searchQuery"
+    class="search__input"
+    type="search"
+    name="searchQuery"
+    placeholder="Search"
+    id="search">
+</div>
+<div *ngIf="searchQuery" class="search-results-area">
+
+</div>

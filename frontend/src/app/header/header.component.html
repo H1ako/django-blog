@@ -1,10 +1,12 @@
 <div class="content">
-  <a routerLink="/">
-    <app-logo></app-logo>
-  </a>
+  <div class="content__left-side">
+    <a class="left-side__logo-link" routerLink="/">
+      <app-logo></app-logo>
+    </a>
+  </div>
   <app-search></app-search>
-  <div class="profile">
-    <div class="profile__tools">
+  <div class="content__right-side">
+    <div class="right-side__tools">
       <a routerLink="/settings" class="icon-btn profile-tools__btn">
       <fa-icon [icon]="settingsIcon"></fa-icon>
       </a>

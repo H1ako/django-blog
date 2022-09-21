@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileMiniComponent implements OnInit {
 
+  user: IUser = {
+    name: 'Sobolev Nikita',
+    pic: ''
+  }
+
   constructor() { }
 
   ngOnInit(): void {
