@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ProfileMiniComponent implements OnInit {
 
   user: IUser = {
+    id: 1,
     name: 'Sobolev Nikita',
     pic: ''
   }

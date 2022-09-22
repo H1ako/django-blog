@@ -1,0 +1,11 @@
+@import "../../mixins";
+.thumbnail {
+
+  &__btns {
+    .btns__btn {
+      @include iconBtn($focusedTextColor: var(--colorMain), $textColor: var(--colorTextMain));
+
+      font-size: var(--fontSize3);
+    }
+  }
+}

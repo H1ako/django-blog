@@ -1,1 +1,19 @@
-<p>post-card works!</p>
+<div class="thumbnail">
+  <img [src]="data.thumbnail" alt="" class="thumbnail__img">
+  <a [routerLink]="data.fullLink">Read More</a>
+  <div class="thumbnail__btns">
+    <a class="btns__btn" [routerLink]="data.fullLink" fragment="comment">
+      <fa-icon [icon]="commentIcon"></fa-icon>
+    </a>
+    <button class="btns__btn">
+      <fa-icon [icon]="favouriteIcon"></fa-icon>
+    </button>
+  </div>
+</div>
+<div class="content">
+  <div class="content__heading">
+    <h3 class="heading__name">{{data.name}}</h3>
+    <h4 class="heading__author">#{{data.author}}</h4>
+  </div>
+  <p class="content__description">{{data.smallDescription}}</p>
+</div>
