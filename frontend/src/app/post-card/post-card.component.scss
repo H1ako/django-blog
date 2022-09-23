@@ -4,116 +4,138 @@
   $contentMarginInline: 1.5rem;
   $contentMarginBlock: 1.25rem;
   $thumbnailMargin: 4rem;
+  $thumbnailHeight: 20rem;
   $transition: var(--transitionSmall);
 
   position: relative;
   display: grid;
-  place-items: center;
-  transform: translateY(-$thumbnailMargin);
+  grid-template-columns: 7fr 3fr;
+  grid-template-rows: 29rem;
+  gap: 1rem;
 
-  .thumbnail {
-    transform: translateY($thumbnailMargin);
+  .card {
     position: relative;
-    width: calc(100% - $contentMarginInline * 2);
-    height: 100%;
-    overflow: hidden;
-    border-radius: var(--bdrsWindow);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 
-    &::after {
-      content: '';
+    &__thumbnail {
       position: absolute;
-      inset: 0;
-      backdrop-filter: blur(2.5px);
-      opacity: 0;
-      transition: $transition;
-    }
-
-    &:hover,
-    &:focus-within {
-      &::after {
-        opacity: 1;
-      }
-      .thumbnail__inner {
-        opacity: 1;
-      }
-    }
-
-    &__img {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      transition: $transition;
-    }
-
-    &__inner {
-      position: absolute;
-      display: grid;
-      place-content: center;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      transition: $transition;
-      opacity: 0;
+      left: $contentMarginInline;
+      width: calc(100% - $contentMarginInline * 2);
+      height: $thumbnailHeight;
+      overflow: hidden;
+      border-radius: var(--bdrsWindow);
 
       &::after {
         content: '';
         position: absolute;
         inset: 0;
-        background: var(--colorBg);
-        opacity: .65;
-        z-index: -1;
+        backdrop-filter: blur(2.5px);
+        opacity: 0;
+        transition: $transition;
       }
 
-      .inner__post-link {
-        font-size: var(--fontSize1);
-        transition: var(--transitionDefault);
-
-        &:hover,
-        &:focus-within {
-          transform: scale(1.1);
+      &:hover,
+      &:focus-within {
+        &::after {
+          opacity: 1;
+        }
+        .thumbnail__inner {
+          opacity: 1;
         }
       }
 
-      .inner__btns {
-        $margin: 1.5rem;
+      .thumbnail__img {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        transition: $transition;
+      }
 
+      .thumbnail__inner {
         position: absolute;
+        display: grid;
+        place-content: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        transition: $transition;
+        opacity: 0;
+
+        &::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: var(--colorBg);
+          opacity: .65;
+          z-index: -1;
+        }
+
+        .inner__post-link {
+          font-size: var(--fontSize1);
+          transition: var(--transitionDefault);
+
+          &:hover,
+          &:focus-within {
+            transform: scale(1.1);
+          }
+        }
+
+        .inner__btns {
+          $margin: 1.5rem;
+
+          position: absolute;
+          display: flex;
+          align-items: center;
+          gap: .5rem;
+          bottom: $margin;
+          right: $margin;
+
+          .btns__btn {
+            @include iconBtn($focusedTextColor: var(--colorMain), $textColor: var(--colorTextMain));
+
+            font-size: var(--fontSize3);
+          }
+        }
+      }
+    }
+
+    &__content {
+      flex-grow: 1;
+      height: calc(100% - $thumbnailHeight + $thumbnailMargin);
+      margin-top: calc($thumbnailHeight - $thumbnailMargin);
+      background: var(--colorBgAccent);
+      border-radius: var(--bdrsWindow);
+      padding: calc($contentMarginBlock + $thumbnailMargin) $contentMarginInline $contentMarginBlock;
+      z-index: -1;
+
+      .content__heading {
         display: flex;
         align-items: center;
         gap: .5rem;
-        bottom: $margin;
-        right: $margin;
+        color: var(--colorMain);
 
-        .btns__btn {
-          @include iconBtn($focusedTextColor: var(--colorMain), $textColor: var(--colorTextMain));
-
-          font-size: var(--fontSize2);
+        .heading__author {
+          white-space: nowrap;
+          color: var(--colorMainDark);
         }
       }
     }
   }
 
-  .content {
-    background: var(--colorBgAccent);
-    border-radius: var(--bdrsWindow);
-    padding: calc($contentMarginBlock + $thumbnailMargin) $contentMarginInline $contentMarginBlock;
-    z-index: -1;
-
-    &__heading {
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-      color: var(--colorMain);
-
-      .heading__author {
-        white-space: nowrap;
-        color: var(--colorMainDark);
-      }
-    }
+  .comments {
+    position: relative;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    gap: 1rem;
+    scrollbar-width: none;
   }
 }

@@ -1,0 +1,7 @@
+@import "../../../mixins";
+
+.posts {
+  @include verticalList;
+
+  gap: 2rem;
+}

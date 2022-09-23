@@ -108,4 +108,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 4rem;
+}
+
+@mixin picture($borderColor: var(--colorBg)) {
+  background-color: var(--colorMainDark);
+  border-radius: 50%;
+  aspect-ratio: 1;
+  border: 2px solid $borderColor;
 }

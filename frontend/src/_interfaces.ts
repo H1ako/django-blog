@@ -6,13 +6,14 @@ interface IBase {
 interface IUser {
   id: IdType,
   name: string,
-  pic: UserPicType
+  picture: UserPicType
 }
 
 interface IComment extends IBase {
   id: IdType,
   text: string,
-  author: AuthorType,
+  author: IUser,
+  favourites: IUser[],
 }
 
 interface IPost extends IBase {
@@ -21,7 +22,7 @@ interface IPost extends IBase {
   description: string,
   smallDescription: string,
   thumbnail: string,
-  author: AuthorType,
+  author: IUser,
   isFavourite: boolean,
   link: string,
   fullLink: string,

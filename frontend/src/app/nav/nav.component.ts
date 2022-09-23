@@ -7,8 +7,8 @@ import { faHouse, faNewspaper } from "@fortawesome/free-solid-svg-icons";
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
-  homeIcon = faNewspaper
-  postsIcon = faHouse
+  homeIcon = faHouse
+  postsIcon = faNewspaper
 
   constructor() { }
 

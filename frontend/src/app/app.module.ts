@@ -16,6 +16,7 @@ import { SearchComponent } from './search/search.component';
 import { ProfileMiniComponent } from './profile-mini/profile-mini.component';
 import { IconBtnComponent } from './icon-btn/icon-btn.component';
 import {FormsModule} from "@angular/forms";
+import { CommentMiniComponent } from './comment-mini/comment-mini.component';
 
 
 
@@ -31,7 +32,8 @@ import {FormsModule} from "@angular/forms";
     AppLogoComponent,
     SearchComponent,
     ProfileMiniComponent,
-    IconBtnComponent
+    IconBtnComponent,
+    CommentMiniComponent
   ],
     imports: [
         HttpClientModule,
