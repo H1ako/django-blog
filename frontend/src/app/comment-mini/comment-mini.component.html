@@ -1,0 +1,11 @@
+<div class="author">
+  <img [src]="data.author.picture" alt="" class="author__picture">
+  <h5 class="author__name">{{data.author.name}}</h5>
+</div>
+<p class="text">{{data.text}}</p>
+<div class="btns">
+  <button class="btns__btn">Reply</button>
+  <button class="btns__icon-btn">
+    <fa-icon [icon]="favouriteIcon"></fa-icon>
+  </button>
+</div>

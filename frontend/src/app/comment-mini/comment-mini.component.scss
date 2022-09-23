@@ -1,0 +1,47 @@
+@import "../../mixins";
+
+:host {
+  position: relative;
+  background: var(--colorBgAccent);
+  border-radius: var(--bdrsWindow);
+  padding: .5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  width: 100%;
+
+  .author {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    color: var(--colorMain);
+
+    &__picture {
+      @include picture(var(--colorBgAccent));
+
+      width: 2.5rem;
+    }
+  }
+
+  .text {
+    //color: var(--colorTextMain);
+  }
+
+  .btns {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    gap: .5rem;
+    font-size: var(--fontSize5);
+
+    &__btn {
+      @include btn;
+
+      background: none;
+    }
+
+    &__icon-btn {
+      @include iconBtn($focusedTextColor: var(--colorMain));
+    }
+  }
+}

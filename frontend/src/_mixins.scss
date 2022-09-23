@@ -88,17 +88,17 @@
   }
 }
 
-@mixin blockSeparator {
+@mixin blockSeparator($gap: 3rem, $color: var(--colorBgAccent)) {
   & :not(:last-child) {
     position: relative;
 
     &::after {
       content: '';
       position: absolute;
-      background: var(--colorBgAccent);
+      background: $color;
       height: 2px;
       width: 100%;
-      top: calc(100% + 1.5rem);
+      top: calc(100% + $gap / 2);
       left: 0;
     }
   }
