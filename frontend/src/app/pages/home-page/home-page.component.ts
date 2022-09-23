@@ -12,8 +12,12 @@ export class HomePageComponent implements OnInit {
       name: 'Best Games of 2022',
       description: '2022 was interesting. There are many games that were awarded and i want to tell you guys about them. Here...',
       smallDescription: '2022 was interesting. There are many games that were awarded and i want to tell you guys about them. Here...',
-      author: 1,
-      thumbnail: '',
+      author: {
+        id: 1,
+        name: 'Sobolev Nikita',
+        pic: ''
+      },
+      thumbnail: 'https://via.placeholder.com/640x360',
       created_at: '10.10.10',
       updated_at: '10.10.10',
       link: 'best-games-2022',
