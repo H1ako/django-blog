@@ -1,0 +1,10 @@
+@import "../../mixins";
+
+.posts {
+  $gap: 2rem;
+
+  @include verticalList;
+  @include blockSeparator($gap: $gap);
+
+  gap: $gap;
+}

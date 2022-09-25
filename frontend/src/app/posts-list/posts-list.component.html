@@ -1,0 +1,4 @@
+<ul class="posts">
+  <app-post-card *ngFor="let post of data" [post]="post"></app-post-card>
+</ul>
+<app-new-comment-modal *ngIf="isCommentModalVisible" #newCommentModal></app-new-comment-modal>

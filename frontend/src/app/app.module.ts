@@ -17,6 +17,8 @@ import { ProfileMiniComponent } from './profile-mini/profile-mini.component';
 import { IconBtnComponent } from './icon-btn/icon-btn.component';
 import {FormsModule} from "@angular/forms";
 import { CommentMiniComponent } from './comment-mini/comment-mini.component';
+import { NewCommentModalComponent } from './new-comment-modal/new-comment-modal.component';
+import { PostsListComponent } from './posts-list/posts-list.component';
 
 
 
@@ -33,7 +35,9 @@ import { CommentMiniComponent } from './comment-mini/comment-mini.component';
     SearchComponent,
     ProfileMiniComponent,
     IconBtnComponent,
-    CommentMiniComponent
+    CommentMiniComponent,
+    NewCommentModalComponent,
+    PostsListComponent
   ],
     imports: [
         HttpClientModule,

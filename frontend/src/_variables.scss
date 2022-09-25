@@ -21,6 +21,8 @@
   --bdrsBtn: 10px;
   --bdrsWindow: 10px;
 
+  --afterHeaderGap: 3rem;
+
   --widthContent: min(1440px, 100%);
   $sideSize: 15rem;
   --gridTemplateContent: #{$sideSize} 4fr #{$sideSize};

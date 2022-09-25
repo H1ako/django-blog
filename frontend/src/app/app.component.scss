@@ -1,5 +1,22 @@
 @import '../mixins';
 
-.content {
-  @include mainContentArea;
+:host {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: auto 100%;
+  overflow: hidden;
+
+  .content {
+    overflow-y: auto;
+    scrollbar-width: none;
+    margin-top: var(--afterHeaderGap);
+
+    &__inner {
+      @include mainContentArea;
+
+      main {
+        padding-bottom: calc(var(--afterHeaderGap) * 2);
+      }
+    }
+  }
 }

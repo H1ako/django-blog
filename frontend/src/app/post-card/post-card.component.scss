@@ -10,7 +10,7 @@
   position: relative;
   display: grid;
   grid-template-columns: 7fr 3fr;
-  grid-template-rows: 30rem;
+  grid-template-rows: 29rem;
   gap: 1rem;
 
   .card {
@@ -137,5 +137,6 @@
     overflow-y: auto;
     gap: 1rem;
     scrollbar-width: none;
+    overscroll-behavior-y: contain;
   }
 }

@@ -2,6 +2,11 @@
 
 :host {
   @include blockSeparator;
+  @include stickyBar;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 
   ul {
     a {
