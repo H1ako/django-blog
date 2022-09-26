@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {faComment} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-new-comment-modal',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-comment-modal.component.scss']
 })
 export class NewCommentModalComponent implements OnInit {
+  sendIcon = faComment
 
   constructor() { }
 

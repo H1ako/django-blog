@@ -10,7 +10,7 @@ export class PostsListComponent implements OnInit {
   data: IPost[]
 
   isCommentModalVisible: boolean = true
-  commentModalReplyTo: null | IdType | IUser = null
+  commentModalReplyTo: null | IUser = null
   commentModalText: string = ''
 
   constructor() { }

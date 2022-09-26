@@ -1,0 +1,24 @@
+:host {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  background: var(--colorBgAccentTransparent);
+  z-index: 99999;
+
+  .modal {
+    padding: 1rem 2rem;
+    background: var(--colorBg);
+    border: 2px solid var(--colorMain);
+    border-radius: var(--bdrsWindow);
+    width: min(98vw, 800px);
+    height: min(90vh, 400px);
+
+    &__reply-to {
+      span {
+        font-size: var(--fontSize4);
+      }
+    }
+  }
+
+}
