@@ -109,8 +109,8 @@
 }
 
 @mixin blockSeparator($gap: 3rem, $color: var(--colorBgAccent)) {
-  &:not(:last-child) {
-    @include separator($gap, $color);
+  & > :not(:last-child) {
+    @include separator($gap: $gap, $color: $color);
   }
 }
 
