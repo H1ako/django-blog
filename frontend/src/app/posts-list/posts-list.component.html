@@ -1,4 +1,13 @@
 <ul class="posts">
-  <app-post-card *ngFor="let post of data" [post]="post"></app-post-card>
+  <post-card
+    (notifyVisibility)="getCommentModalVisibility($event)"
+    (notifyReplyTo)="getCommentModalReplyTo($event)"
+    *ngFor="let post of posts"
+    [post]="post"
+  ></post-card>
 </ul>
-<app-new-comment-modal *ngIf="isCommentModalVisible" #newCommentModal></app-new-comment-modal>
+<app-new-comment-modal
+  [replyTo]="commentModalReplyTo"
+  (notify)="getCommentModalVisibility($event)"
+  *ngIf="isCommentModalVisible"
+></app-new-comment-modal>

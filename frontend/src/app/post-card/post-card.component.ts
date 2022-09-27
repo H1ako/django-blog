@@ -1,22 +1,30 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {faComment, faHeart} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
-  selector: 'app-post-card',
+  selector: 'post-card',
   templateUrl: './post-card.component.html',
   styleUrls: ['./post-card.component.scss']
 })
 export class PostCardComponent implements OnInit {
   @Input() post: IPost
-  data: IPost
 
   favouriteIcon = faHeart
   commentIcon = faComment
 
+  @Output() notifyVisibility: EventEmitter<boolean> = new EventEmitter<boolean>()
+  @Output() notifyReplyTo: EventEmitter<ReplyToType> = new EventEmitter<ReplyToType>()
+
+  openCommentModal = (comment: ReplyToType = null): () => void => {
+    return () => {
+      this.notifyVisibility.emit(true)
+      this.notifyReplyTo.emit(comment)
+    }
+  }
+
   constructor() {}
 
   ngOnInit(): void {
-    this.data = this.post
   }
 
 }

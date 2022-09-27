@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-posts-list',
@@ -7,22 +7,20 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PostsListComponent implements OnInit {
   @Input() posts: IPost[]
-  data: IPost[]
 
-  isCommentModalVisible: boolean = true
-  commentModalReplyTo: null | IUser = null
-  commentModalText: string = ''
+  isCommentModalVisible: boolean = false
+  commentModalReplyTo: ReplyToType = null
 
-  constructor() { }
-
-  clearModal(): void {
-    this.isCommentModalVisible = false
-    this.commentModalReplyTo = null
-    this.commentModalText = ''
+  getCommentModalVisibility(isVisible: boolean): void {
+    this.isCommentModalVisible = isVisible
   }
+
+  getCommentModalReplyTo = (replyTo: ReplyToType): void => {
+    this.commentModalReplyTo = replyTo
+  }
+
+  constructor() {}
 
   ngOnInit(): void {
-    this.data = this.posts
   }
-
 }

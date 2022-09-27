@@ -1,12 +1,12 @@
 <div class="card">
   <div class="card__thumbnail">
-    <img [src]="data.thumbnail" alt="" class="thumbnail__img">
+    <img [src]="post.thumbnail" alt="" class="thumbnail__img">
     <div class="thumbnail__inner">
-      <a class="inner__post-link" [routerLink]="data.fullLink">Read More</a>
+      <a class="inner__post-link" [routerLink]="post.fullLink">Read More</a>
       <div class="inner__btns">
-        <a class="btns__btn" [routerLink]="data.fullLink" fragment="comment">
+        <button class="btns__btn" (click)="openCommentModal()()">
           <fa-icon [icon]="commentIcon"></fa-icon>
-        </a>
+        </button>
         <button class="btns__btn">
           <fa-icon [icon]="favouriteIcon"></fa-icon>
         </button>
@@ -15,12 +15,12 @@
   </div>
   <div class="card__content">
     <div class="content__heading">
-      <h2 class="heading__name">{{data.name}}</h2>
-      <h5 class="heading__author">#{{data.author.name}}</h5>
+      <h2 class="heading__name">{{post.name}}</h2>
+      <h5 class="heading__author">#{{post.author.name}}</h5>
     </div>
-    <p class="content__description">{{data.smallDescription}}</p>
+    <p class="content__description">{{post.smallDescription}}</p>
   </div>
 </div>
 <div class="comments">
-  <app-comment-mini [comment]="comment" *ngFor="let comment of data.comments"></app-comment-mini>
+  <comment-mini [onReply]="openCommentModal(comment)" [comment]="comment" *ngFor="let comment of post.comments"></comment-mini>
 </div>

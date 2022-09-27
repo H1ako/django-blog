@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {faComment} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
@@ -8,6 +8,14 @@ import {faComment} from "@fortawesome/free-solid-svg-icons";
 })
 export class NewCommentModalComponent implements OnInit {
   sendIcon = faComment
+
+  @Output() notify: EventEmitter<boolean> = new EventEmitter<boolean>()
+  @Input() replyTo: ReplyToType = null
+  text: string = ''
+
+  onClose = (): void => {
+    this.notify.emit(false)
+  }
 
   constructor() { }
 

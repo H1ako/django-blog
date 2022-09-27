@@ -46,6 +46,10 @@
   gap: .75rem;
   transition: var(--transitionSmall);
   border-radius: var(--bdrsBtn);
+
+  &:hover {
+    filter: brightness(1.2);
+  }
 }
 
 @mixin link {
@@ -90,19 +94,23 @@
   }
 }
 
-@mixin blockSeparator($gap: 3rem, $color: var(--colorBgAccent)) {
-  & :not(:last-child) {
-    position: relative;
+@mixin separator($gap: 3rem, $color: var(--colorBgAccent)) {
+  position: relative;
 
-    &::after {
-      content: '';
-      position: absolute;
-      background: $color;
-      height: 2px;
-      width: 100%;
-      top: calc(100% + $gap / 2);
-      left: 0;
-    }
+  &::after {
+    content: '';
+    position: absolute;
+    background: $color;
+    height: 2px;
+    width: 100%;
+    top: calc(100% + $gap / 2);
+    left: 0;
+  }
+}
+
+@mixin blockSeparator($gap: 3rem, $color: var(--colorBgAccent)) {
+  &:not(:last-child) {
+    @include separator($gap, $color);
   }
 }
 

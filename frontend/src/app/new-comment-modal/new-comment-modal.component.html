@@ -1,12 +1,15 @@
 <div class="modal">
-  <div class="modal__reply-to">
+  <close-btn [onClose]="onClose"></close-btn>
+  <div class="modal__reply-to" *ngIf="replyTo">
     <span>Reply to</span>
     <span class="reply-to__user">
       <img src="" alt="" class="user__picture">
-      <h4 class="user__name"></h4>
+      <h5 class="user__name">{{replyTo.author.name}}: </h5>
+      <h5 class="user__comment">{{replyTo.text}}</h5>
     </span>
   </div>
-  <button class="modal__send-btn">
+  <textarea placeholder="Your thoughts..." class="modal__text" [ngModel]="text" name="newCommentText"></textarea>
+  <button class="modal__btn send-btn">
     <fa-icon [icon]="sendIcon"></fa-icon>
     Send
   </button>

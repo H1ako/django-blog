@@ -1,3 +1,5 @@
+@import '../../mixins';
+
 :host {
   position: fixed;
   inset: 0;
@@ -6,18 +8,70 @@
   background: var(--colorBgAccentTransparent);
   z-index: 99999;
 
+  close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+
   .modal {
+    $gap: 1rem;
+
     padding: 1rem 2rem;
     background: var(--colorBg);
     border: 2px solid var(--colorMain);
     border-radius: var(--bdrsWindow);
     width: min(98vw, 800px);
     height: min(90vh, 400px);
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
 
     &__reply-to {
+      @include separator($gap);
+
+      display: flex;
+      gap: .25rem;
+      align-items: center;
+
       span {
-        font-size: var(--fontSize4);
+        font-size: var(--fontSize5);
       }
+
+      .reply-to__user {
+        display: flex;
+        gap: .25rem;
+        align-items: center;
+
+        .user__picture {
+          @include picture;
+
+          width: 2rem;
+        }
+
+        .user__name {
+          color: var(--colorMain);
+        }
+      }
+    }
+
+    &__text {
+      flex-grow: 1;
+      background: none;
+      outline: none;
+      color: var(--colorTextMain);
+      border: none;
+      font-size: var(--fontSize5);
+      resize: none;
+    }
+
+    &__btn {
+      @include btn;
+
+      padding: .45rem 6rem;
+      background: var(--colorBgAccent);
+      font-size: var(--fontSize4);
+      margin-inline: auto;
     }
   }
 

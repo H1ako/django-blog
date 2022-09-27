@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {CommonModule} from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
@@ -19,7 +20,7 @@ import {FormsModule} from "@angular/forms";
 import { CommentMiniComponent } from './comment-mini/comment-mini.component';
 import { NewCommentModalComponent } from './new-comment-modal/new-comment-modal.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
-
+import { CloseBtnComponent } from './close-btn/close-btn.component';
 
 
 @NgModule({
@@ -37,11 +38,13 @@ import { PostsListComponent } from './posts-list/posts-list.component';
     IconBtnComponent,
     CommentMiniComponent,
     NewCommentModalComponent,
-    PostsListComponent
+    PostsListComponent,
+    CloseBtnComponent
   ],
     imports: [
         HttpClientModule,
         BrowserModule,
+        CommonModule,
         AppRoutingModule,
         FontAwesomeModule,
         FormsModule,
