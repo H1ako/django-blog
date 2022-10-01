@@ -1,30 +1,39 @@
 interface IBase {
-  updated_at: string,
-  created_at: string,
+  updatedAt: string,
+  createdAt: string,
 }
 
-interface IUser {
+interface IUser extends IBase {
   id: IdType,
+  email: string,
+  firstName: string,
+  lastName: string,
   name: string,
   picture: UserPicType
 }
 
-interface IComment extends IBase {
+interface IPostComment extends IBase {
   id: IdType,
   text: string,
-  author: IUser,
+  user: IUser,
   favourites: IUser[],
+}
+
+interface IPostFavourite extends IBase {
+  id: IdType,
+  text: string,
+  user: IUser,
 }
 
 interface IPost extends IBase {
   id: IdType,
   name: string,
   description: string,
-  smallDescription: string,
+  shortDescription: string,
   thumbnail: string,
-  author: IUser,
+  user: IUser,
+  views: IUser[],
   isFavourite: boolean,
   link: string,
-  fullLink: string,
-  comments: IComment[]
+  comments: IPostComment[]
 }

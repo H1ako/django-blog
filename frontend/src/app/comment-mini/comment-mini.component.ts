@@ -9,7 +9,7 @@ import {faHeart} from "@fortawesome/free-solid-svg-icons";
 export class CommentMiniComponent implements OnInit {
   favouriteIcon = faHeart
 
-  @Input() comment: IComment
+  @Input() comment: IPostComment
   @Input() onReply: () => void
 
   constructor() { }

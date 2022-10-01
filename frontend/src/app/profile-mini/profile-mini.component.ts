@@ -9,8 +9,14 @@ export class ProfileMiniComponent implements OnInit {
 
   user: IUser = {
     id: 1,
+    email: '',
+    firstName: '',
+    lastName: '',
     name: 'Sobolev Nikita',
-    picture: ''
+    picture: '',
+    createdAt: '',
+    updatedAt: ''
+
   }
 
   constructor() { }

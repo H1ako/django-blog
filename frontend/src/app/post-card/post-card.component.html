@@ -2,7 +2,7 @@
   <div class="card__thumbnail">
     <img [src]="post.thumbnail" alt="" class="thumbnail__img">
     <div class="thumbnail__inner">
-      <a class="inner__post-link" [routerLink]="post.fullLink">Read More</a>
+      <a class="inner__post-link" [routerLink]="['/posts', post.link]">Read More</a>
       <div class="inner__btns">
         <button class="btns__btn" (click)="openCommentModal()()">
           <fa-icon [icon]="commentIcon"></fa-icon>
@@ -16,9 +16,9 @@
   <div class="card__content">
     <div class="content__heading">
       <h2 class="heading__name">{{post.name}}</h2>
-      <h5 class="heading__author">#{{post.author.name}}</h5>
+      <h5 class="heading__author">#{{post.user.name}}</h5>
     </div>
-    <p class="content__description">{{post.smallDescription}}</p>
+    <p class="content__description">{{post.shortDescription}}</p>
   </div>
 </div>
 <div class="comments">
