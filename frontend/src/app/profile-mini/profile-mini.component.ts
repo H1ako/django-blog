@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from "../services/UserService/user.service";
 
 @Component({
   selector: 'app-profile-mini',
@@ -7,21 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileMiniComponent implements OnInit {
 
-  user: IUser = {
-    id: 1,
-    email: '',
-    firstName: '',
-    lastName: '',
-    name: 'Sobolev Nikita',
-    picture: '',
-    createdAt: '',
-    updatedAt: ''
+  user: UserType = null
 
-  }
-
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.userService.user.subscribe(user => this.user = user)
   }
 
 }

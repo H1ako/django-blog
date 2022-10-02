@@ -4,13 +4,13 @@ from posts.models import Post
 
 
 class PostSerializer(serializers.ModelSerializer):
-    isFavourite = serializers.SerializerMethodField('isFavourite')
+    isFavourite = serializers.SerializerMethodField('is_favourite')
 
     class Meta:
         model = Post
         fields = '__all__'
 
-    def get_isFavourite(self, post: Post) -> bool:
+    def get_is_favourite(self, post: Post) -> bool:
         user = self.context['request'].user
 
         if not user.is_authenticated: return False

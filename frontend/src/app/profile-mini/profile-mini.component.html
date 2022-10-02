@@ -1,4 +1,4 @@
-<div class="user-info">
+<div class="user-info" *ngIf="user">
   <h5 class="user-info__name">{{user.name}}</h5>
   <img [src]="user.picture" alt="" class="user-info__pic">
 </div>

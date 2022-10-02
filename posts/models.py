@@ -4,7 +4,7 @@ from users.models import User
 
 
 class Post(models.Model):
-    authorId = models.ForeignKey(User, on_delete=models.CASCADE, related_name='author')
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='author')
     name = models.CharField('Name', max_length=40)
     description = models.TextField('Description')
     shortDescription = models.CharField('Short Description', max_length=100)
@@ -19,7 +19,7 @@ class Post(models.Model):
 
 
 class PostFavourite(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='favouritePosts')
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='favouritePosts')
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='favourites')
     createdAt = models.DateTimeField("Created At", auto_now_add=True)
 
@@ -29,7 +29,7 @@ class PostFavourite(models.Model):
 
 
 class PostComment(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='postsComments')
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='postsComments')
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     text = models.TextField('Text', max_length=500)
     updatedAt = models.DateTimeField("Created At", auto_now=True)
@@ -41,7 +41,7 @@ class PostComment(models.Model):
 
 
 class PostView(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='postsViews')
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='postsViews')
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='views')
     updatedAt = models.DateTimeField("Created At", auto_now=True)
     createdAt = models.DateTimeField("Created At", auto_now_add=True)
