@@ -22,5 +22,6 @@
   </div>
 </div>
 <div class="comments">
+  <button class="comments__new-comment" (click)="openCommentModal()()">Leave a comment</button>
   <comment-mini [onReply]="openCommentModal(comment)" [comment]="comment" *ngFor="let comment of post.comments"></comment-mini>
 </div>

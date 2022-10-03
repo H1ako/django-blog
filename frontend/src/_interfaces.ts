@@ -1,56 +1,56 @@
 interface IRequest {
-  errorDetails?: string,
+  readonly errorDetails?: string,
 }
 
 interface IUserRequest extends IRequest {
-  user: UserType
+  readonly user: UserType
 }
 
 interface IBase {
-  updatedAt: string,
-  createdAt: string,
+  readonly updatedAt: string,
+  readonly createdAt: string,
 }
 
 interface IUser extends IBase {
-  id: IdType,
-  email: string,
-  firstName: string,
-  lastName: string,
-  name: string,
-  picture: UserPicType
+  readonly id: IdType,
+  readonly email: string,
+  readonly firstName: string,
+  readonly lastName: string,
+  readonly name: string,
+  readonly picture: UserPicType
 }
 
 interface IPost extends IBase {
-  id: IdType,
-  name: string,
-  description: string,
-  shortDescription: string,
-  thumbnail: string,
-  author: IUser,
-  views: IPostView[],
-  isFavourite: boolean,
-  favourites: IPostFavourite[],
-  link: string,
-  comments: IPostComment[]
+  readonly id: IdType,
+  readonly name: string,
+  readonly description: string,
+  readonly shortDescription: string,
+  readonly thumbnail: string,
+  readonly author: IUser,
+  readonly views: IPostView[],
+  readonly isFavourite: boolean,
+  readonly favourites: IPostFavourite[],
+  readonly link: string,
+  readonly comments: IPostComment[]
 }
 
 interface IPostComment extends IBase {
-  id: IdType,
-  text: string,
-  post: IPost | IdType,
-  author: IUser,
-  favourites: IUser[],
+  readonly id: IdType,
+  readonly text: string,
+  readonly post: IPost | IdType,
+  readonly author: IUser,
+  readonly favourites: IUser[],
 }
 
 interface IPostFavourite extends IBase {
-  id: IdType,
-  text: string,
-  post: IPost | IdType,
-  author: IUser,
+  readonly id: IdType,
+  readonly text: string,
+  readonly post: IPost | IdType,
+  readonly author: IUser,
 }
 
 interface IPostView extends IBase {
-  id: IdType,
-  post: IPost | IdType,
-  author: IUser,
+  readonly id: IdType,
+  readonly post: IPost | IdType,
+  readonly author: IUser,
 }

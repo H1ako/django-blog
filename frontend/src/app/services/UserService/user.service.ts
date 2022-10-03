@@ -5,8 +5,8 @@ import {BehaviorSubject} from "rxjs";
   providedIn: 'root'
 })
 export class UserService {
-  private userSource: BehaviorSubject<UserType> = new BehaviorSubject<UserType>(null)
-  user = this.userSource.asObservable()
+  private user$: BehaviorSubject<UserType> = new BehaviorSubject<UserType>(null)
+  user = this.user$.asObservable()
 
   constructor() {
     void this.updateUser()
@@ -27,8 +27,6 @@ export class UserService {
       console.error('User is not authenticated', error)
     }
 
-    console.log(userData)
-
-    this.userSource.next(userData)
+    this.user$.next(userData)
   }
 }

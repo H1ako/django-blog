@@ -4,7 +4,7 @@ from users.models import User
 
 
 class Post(models.Model):
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='author')
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
     name = models.CharField('Name', max_length=40)
     description = models.TextField('Description')
     shortDescription = models.CharField('Short Description', max_length=100)
