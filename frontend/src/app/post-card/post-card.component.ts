@@ -15,11 +15,13 @@ export class PostCardComponent implements OnInit {
   @Output() notifyVisibility: EventEmitter<boolean> = new EventEmitter<boolean>()
   @Output() notifyReplyTo: EventEmitter<ReplyToType> = new EventEmitter<ReplyToType>()
 
-  openCommentModal = (comment: ReplyToType = null): () => void => {
-    return () => {
-      this.notifyVisibility.emit(true)
-      this.notifyReplyTo.emit(comment)
-    }
+  openCommentModal = (): void => {
+    this.notifyVisibility.emit(true)
+  }
+
+  openReplyCommentModal(comment: ReplyToType): void {
+    this.notifyReplyTo.emit(comment)
+    this.openCommentModal()
   }
 
   constructor() {}

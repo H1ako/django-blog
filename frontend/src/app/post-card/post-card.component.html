@@ -4,7 +4,7 @@
     <div class="thumbnail__inner">
       <a class="inner__post-link" [routerLink]="['/posts', post.link]">Read More</a>
       <div class="inner__btns">
-        <button class="btns__btn" (click)="openCommentModal()()">
+        <button class="btns__btn" (click)="openCommentModal()">
           <fa-icon [icon]="commentIcon"></fa-icon>
         </button>
         <button class="btns__btn">
@@ -22,6 +22,6 @@
   </div>
 </div>
 <div class="comments">
-  <button class="comments__new-comment" (click)="openCommentModal()()">Leave a comment</button>
-  <comment-mini [onReply]="openCommentModal(comment)" [comment]="comment" *ngFor="let comment of post.comments"></comment-mini>
+  <button class="comments__new-comment" (click)="openCommentModal()">Leave a comment</button>
+  <comment-mini (onReply)="openReplyCommentModal(comment)" [comment]="comment" *ngFor="let comment of post.comments"></comment-mini>
 </div>
