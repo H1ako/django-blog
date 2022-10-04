@@ -1,0 +1,55 @@
+:host {
+  width: 3rem;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: red;
+  animation: infinite linear bgChangeAnimation 1000ms alternate;
+  border: 2px solid var(--colorMain);
+
+  span {
+    color: var(--colorTextDark);
+    transform: translateY(.5rem);
+    font-size: var(--fontSize1);
+    animation: infinite linear jumpingAnimation 500ms alternate;
+    animation-delay: var(--delay);
+    line-height: .1px;
+
+    &:nth-child(1) {
+      --delay: 100ms;
+    }
+    &:nth-child(2) {
+      --delay: 200ms;
+    }
+    &:nth-child(3) {
+      --delay: 300ms;
+    }
+  }
+}
+
+@keyframes jumpingAnimation {
+  0% {
+    translate: 0 0;
+  }
+  37.5% {
+    color: var(--colorMain);
+  }
+  50%,
+  100% {
+    translate: 0 -.5rem;
+  }
+}
+
+@keyframes bgChangeAnimation {
+  0% {
+    background: var(--colorBg);
+  }
+  50% {
+    background: var(--colorBgAccent);
+  }
+  100% {
+    background: var(--colorBgAccentLight);
+  }
+}

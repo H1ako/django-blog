@@ -13,6 +13,9 @@ class Post(models.Model):
     updatedAt = models.DateTimeField("Created At", auto_now=True)
     createdAt = models.DateTimeField("Created At", auto_now_add=True)
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         verbose_name = _('Post')
         verbose_name_plural = _('Posts')

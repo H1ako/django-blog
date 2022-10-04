@@ -1,4 +1,5 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {PostsService} from "../services/PostsService/posts.service";
 
 @Component({
   selector: 'app-posts-list',
@@ -6,7 +7,8 @@ import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
   styleUrls: ['./posts-list.component.scss']
 })
 export class PostsListComponent implements OnInit {
-  @Input() posts: IPost[]
+  posts: IPost[] = []
+  page: number = 1
 
   isCommentModalVisible: boolean = false
   commentModalReplyTo: ReplyToType = null
@@ -19,8 +21,13 @@ export class PostsListComponent implements OnInit {
     this.commentModalReplyTo = replyTo
   }
 
-  constructor() {}
+  updatePosts() {
+    void this.postsService.updatePosts(this.postsService.API_NEWS_POSTS_URL, this.page)
+  }
+
+  constructor(private postsService: PostsService) {}
 
   ngOnInit(): void {
+    this.postsService.posts.subscribe(posts => this.posts = posts)
   }
 }

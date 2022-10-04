@@ -21,6 +21,8 @@ import { CommentMiniComponent } from './comment-mini/comment-mini.component';
 import { NewCommentModalComponent } from './new-comment-modal/new-comment-modal.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { CloseBtnComponent } from './close-btn/close-btn.component';
+import { NextPageComponent } from './next-page/next-page.component';
+import { LoaderIconComponent } from './loader-icon/loader-icon.component';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { CloseBtnComponent } from './close-btn/close-btn.component';
     CommentMiniComponent,
     NewCommentModalComponent,
     PostsListComponent,
-    CloseBtnComponent
+    CloseBtnComponent,
+    NextPageComponent,
+    LoaderIconComponent
   ],
     imports: [
         HttpClientModule,

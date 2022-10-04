@@ -3,4 +3,5 @@ from .views import *
 
 urlpatterns = [
     path('', PostsView.as_view()),
+    path('', PostsNewsView.as_view()),
 ]

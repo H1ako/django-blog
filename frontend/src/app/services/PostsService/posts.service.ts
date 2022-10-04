@@ -8,8 +8,8 @@ export class PostsService {
   private posts$: BehaviorSubject<IPost[]> = new BehaviorSubject<IPost[]>([])
   posts = this.posts$.asObservable()
 
-  private API_NEWS_POSTS_URL = '/api/posts/news/'
-  private API_USER_POSTS_URL = '/api/posts/'
+  API_NEWS_POSTS_URL = '/api/posts/news/'
+  API_USER_POSTS_URL = '/api/posts/'
 
   constructor() {
     void this.updatePosts(this.API_USER_POSTS_URL)
