@@ -22,4 +22,4 @@ if settings.DEBUG:
 
 # for router
 urlpatterns.append(
-    re_path(r'^.*', TemplateView.as_view(template_name="build/index.html")))
+    re_path(r'^(?!api/*).*', TemplateView.as_view(template_name="build/index.html")))

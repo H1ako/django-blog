@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PostsService} from "../services/PostsService/posts.service";
 
 @Component({
@@ -9,6 +9,7 @@ import {PostsService} from "../services/PostsService/posts.service";
 export class PostsListComponent implements OnInit {
   posts: IPost[] = []
   page: number = 1
+  lastPage: number = 1
 
   isCommentModalVisible: boolean = false
   commentModalReplyTo: ReplyToType = null
@@ -22,7 +23,8 @@ export class PostsListComponent implements OnInit {
   }
 
   updatePosts() {
-    void this.postsService.updatePosts(this.postsService.API_NEWS_POSTS_URL, this.page)
+    this.page++
+    void this.postsService.addPosts(this.postsService.API_NEWS_POSTS_URL, this.page)
   }
 
   constructor(private postsService: PostsService) {}

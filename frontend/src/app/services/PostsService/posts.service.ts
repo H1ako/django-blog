@@ -15,30 +15,30 @@ export class PostsService {
     void this.updatePosts(this.API_USER_POSTS_URL)
   }
 
-  async updatePosts(apiUrl: string, page:number=1) {
-    let newPosts: IPost[] = []
-
-    try {
-      const urlParams = {
-        "page": page.toString()
-      }
-
-      const url = `${apiUrl}?${new URLSearchParams(urlParams)}`
-      const response = await fetch(url, {
-        method: 'get',
-      })
-
-      const responseJson = await response.json()
-      newPosts = responseJson.posts
-
-    }
-    catch (error) {
-      console.error(error)
+  async getPostsResponse(apiUrl: string, page:number=1): Promise<IPostsRequest> {
+    const urlParams = {
+      "page": page.toString()
     }
 
-    console.log(newPosts)
-    this.posts$.next(newPosts)
+    const url = `${apiUrl}?${new URLSearchParams(urlParams)}`
+    console.log(url)
+    const response = await fetch(url, {
+      method: 'get',
+    })
+
+    const responseJson: IPostsRequest = await response.json()
+    return Promise<IPostsRequest>.resolve(responseJson)
   }
 
+  updatePosts(apiUrl: string, page:number=1) {
+    this.getPostsResponse(apiUrl, page)
+      .then(({posts}) => this.posts$.next(posts))
+  }
 
+  addPosts(apiUrl: string, page:number=1) {
+    this.getPostsResponse(apiUrl, page)
+      .then(({posts}) => {
+        this.posts$.next([...this.posts$.getValue(), ...posts])
+      })
+  }
 }

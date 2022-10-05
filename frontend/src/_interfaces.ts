@@ -6,6 +6,11 @@ interface IUserRequest extends IRequest {
   readonly user: UserType
 }
 
+interface IPostsRequest extends IRequest {
+  readonly posts: IPost[],
+  readonly lastPage: number
+}
+
 interface IBase {
   readonly updatedAt: string,
   readonly createdAt: string,

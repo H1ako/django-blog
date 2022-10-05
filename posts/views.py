@@ -21,13 +21,14 @@ class PostsView(views.APIView):
 
         posts = self.get_posts(user).order_by(Length('views'))
         paginator = Paginator(posts, 10)
-        currentPage = paginator.get_page(page)
+        currentPage = paginator.page(page)
         postsData = PostSerializer(currentPage.object_list, many=True, context={
             'request': req
         }).data
 
         data = {
             'posts': postsData,
+            'lastPage': currentPage.end_index()
         }
 
         return Response(data, status=status_code)

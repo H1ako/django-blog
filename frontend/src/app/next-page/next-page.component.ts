@@ -1,27 +1,35 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Output,
+  ViewChild
+} from '@angular/core';
 
 @Component({
   selector: 'app-next-page',
   templateUrl: './next-page.component.html',
   styleUrls: ['./next-page.component.scss']
 })
-export class NextPageComponent implements OnInit {
-  @Input() observable: Element
+export class NextPageComponent implements AfterViewInit {
   @Output() onObserve: EventEmitter<any> = new EventEmitter<any>()
+  @ViewChild('loader', {read: ElementRef}) loader: ElementRef
 
-  constructor() {
+  constructor() {}
+
+  ngAfterViewInit(): void {
     const options = {
 
     }
     const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach((e) => {
-        console.log(e.target)
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          this.onObserve.emit()
+        }
       })
     }, options)
-    observer.observe(this.observable)
-  }
-
-  ngOnInit(): void {
+    observer.observe(this.loader.nativeElement)
   }
 
 }

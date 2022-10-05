@@ -1,7 +1,7 @@
-from django.urls import path, include
+from django.urls import path
 from .views import *
 
 urlpatterns = [
     path('', PostsView.as_view()),
-    path('', PostsNewsView.as_view()),
+    path('news/', PostsNewsView.as_view()),
 ]
