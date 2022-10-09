@@ -6,7 +6,9 @@ import {BehaviorSubject} from "rxjs";
 })
 export class PostsService {
   private posts$: BehaviorSubject<IPost[]> = new BehaviorSubject<IPost[]>([])
+  private lastPage$: BehaviorSubject<number> = new BehaviorSubject<number>(1)
   posts = this.posts$.asObservable()
+  lastPage = this.lastPage$.asObservable()
 
   API_NEWS_POSTS_URL = '/api/posts/news/'
   API_USER_POSTS_URL = '/api/posts/'
@@ -21,7 +23,6 @@ export class PostsService {
     }
 
     const url = `${apiUrl}?${new URLSearchParams(urlParams)}`
-    console.log(url)
     const response = await fetch(url, {
       method: 'get',
     })
@@ -32,13 +33,17 @@ export class PostsService {
 
   updatePosts(apiUrl: string, page:number=1) {
     this.getPostsResponse(apiUrl, page)
-      .then(({posts}) => this.posts$.next(posts))
+      .then(({posts, lastPage}) => {
+        this.posts$.next(posts)
+        this.lastPage$.next(lastPage)
+      })
   }
 
   addPosts(apiUrl: string, page:number=1) {
     this.getPostsResponse(apiUrl, page)
-      .then(({posts}) => {
+      .then(({posts, lastPage}) => {
         this.posts$.next([...this.posts$.getValue(), ...posts])
+        this.lastPage$.next(lastPage)
       })
   }
 }

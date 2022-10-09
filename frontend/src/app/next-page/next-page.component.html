@@ -1,1 +1,3 @@
-<app-loader-icon #loader></app-loader-icon>
+<button #loader [disabled]="loading" (click)="onClick()">
+  <app-loader-icon [ngClass]="{loading: loading, hidden: isLastPage}"></app-loader-icon>
+</button>

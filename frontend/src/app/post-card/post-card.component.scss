@@ -8,22 +8,20 @@
   $transition: var(--transitionSmall);
 
   position: relative;
-  //display: grid;
-  //grid-template-columns: 7fr 3fr;
-  //grid-template-rows: 29rem;
-  display: flex;
-  align-items: center;
-  height: 29rem;
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  grid-template-rows: 29rem;
+  width: 100%;
+  //display: flex;
+  //align-items: center;
+  //height: 29rem;
   gap: 1rem;
 
   .card {
-    flex: 1 0;
-    width: 70%;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    height: 100%;
 
     &__thumbnail {
       position: absolute;
@@ -32,6 +30,8 @@
       height: $thumbnailHeight;
       overflow: hidden;
       border-radius: var(--bdrsWindow);
+      display: grid;
+      place-items: center;
 
       &::after {
         content: '';
@@ -55,11 +55,12 @@
       .thumbnail__img {
         position: relative;
         width: 100%;
-        height: 100%;
+        height: auto;
+        transition: $transition;
+        min-height: 100%;
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-        transition: $transition;
       }
 
       .thumbnail__inner {
@@ -113,6 +114,7 @@
     }
 
     &__content {
+      position: relative;
       flex-grow: 1;
       height: calc(100% - $thumbnailHeight + $thumbnailMargin);
       margin-top: calc($thumbnailHeight - $thumbnailMargin);
@@ -123,11 +125,12 @@
 
       .content__heading {
         display: flex;
-        align-items: center;
-        gap: .5rem;
+        flex-direction: column;
+        //align-items: center;
         color: var(--colorMain);
 
         .heading__author {
+          //align-self: center;
           white-space: nowrap;
           color: var(--colorMainDark);
         }
@@ -137,9 +140,6 @@
 
   .comments {
     position: relative;
-    width: 30%;
-    flex: 0 0 30%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     overflow-y: auto;

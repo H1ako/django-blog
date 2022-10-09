@@ -2,7 +2,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
-  EventEmitter,
+  EventEmitter, Input,
   Output,
   ViewChild
 } from '@angular/core';
@@ -13,8 +13,16 @@ import {
   styleUrls: ['./next-page.component.scss']
 })
 export class NextPageComponent implements AfterViewInit {
-  @Output() onObserve: EventEmitter<any> = new EventEmitter<any>()
+  @Input() onObserve: any
   @ViewChild('loader', {read: ElementRef}) loader: ElementRef
+  loading: boolean = true
+  isLastPage: boolean = false
+
+  async onClick() {
+    this.loading = true
+    this.isLastPage = await this.onObserve()
+    this.loading = false
+  }
 
   constructor() {}
 
@@ -25,11 +33,10 @@ export class NextPageComponent implements AfterViewInit {
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          this.onObserve.emit()
+          void this.onClick()
         }
       })
     }, options)
     observer.observe(this.loader.nativeElement)
   }
-
 }

@@ -1,13 +1,41 @@
 :host {
+  position: relative;
   width: 3rem;
   aspect-ratio: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  background: red;
-  animation: infinite linear bgChangeAnimation 1000ms alternate;
+  background: var(--colorBg);
   border: 2px solid var(--colorMain);
+
+  &.hidden {
+    display: none;
+  }
+
+  &.loading {
+    animation: infinite linear bgChangeAnimation 1000ms alternate;
+
+    span {
+      opacity: 1;
+      scale: 1;
+    }
+
+    fa-icon {
+      scale: 0;
+      opacity: 0;
+    }
+  }
+
+  fa-icon {
+    position: absolute;
+    font-size: var(--fontSize4);
+    color: var(--colorTextMain);
+    transition: 300ms;
+    scale: 1;
+    transform-origin: center;
+    opacity: 1;
+  }
 
   span {
     color: var(--colorTextDark);
@@ -16,6 +44,10 @@
     animation: infinite linear jumpingAnimation 500ms alternate;
     animation-delay: var(--delay);
     line-height: .1px;
+    transition: 300ms;
+    scale: 0;
+    transform-origin: center;
+    opacity: 0;
 
     &:nth-child(1) {
       --delay: 100ms;

@@ -6,9 +6,12 @@ interface IUserRequest extends IRequest {
   readonly user: UserType
 }
 
-interface IPostsRequest extends IRequest {
-  readonly posts: IPost[],
+interface IPaginator {
   readonly lastPage: number
+}
+
+interface IPostsRequest extends IRequest, IPaginator {
+  readonly posts: IPost[],
 }
 
 interface IBase {

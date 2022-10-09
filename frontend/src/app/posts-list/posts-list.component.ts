@@ -22,14 +22,20 @@ export class PostsListComponent implements OnInit {
     this.commentModalReplyTo = replyTo
   }
 
-  updatePosts() {
+  updatePosts = (): boolean => {
+    if (this.page >= this.lastPage) {
+      return true
+    }
+
     this.page++
     void this.postsService.addPosts(this.postsService.API_NEWS_POSTS_URL, this.page)
+    return this.lastPage >= this.page
   }
 
   constructor(private postsService: PostsService) {}
 
   ngOnInit(): void {
     this.postsService.posts.subscribe(posts => this.posts = posts)
+    this.postsService.lastPage.subscribe(lastPage => this.lastPage = lastPage)
   }
 }
